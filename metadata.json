@@ -1,0 +1,6 @@
+{
+  "name": "Bus Simulator India (BUSSIN)",
+  "description": "Experience immersive Indian bus driving. Customize liveries, tune chassis mods, handle chaotic traffic, transport passengers across scenic highway routes, and climb the local leaderboards in the ultimate simulator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
