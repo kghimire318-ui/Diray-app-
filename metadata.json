@@ -1,6 +1,8 @@
 {
-  "name": "Bus Simulator India (BUSSIN)",
-  "description": "Experience immersive Indian bus driving. Customize liveries, tune chassis mods, handle chaotic traffic, transport passengers across scenic highway routes, and climb the local leaderboards in the ultimate simulator.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "name": "Secret Diary",
+  "description": "A private, beautiful, and secure diary app with PIN protection, checklists, habit tracker, speech-to-text, and media recording features.",
+  "requestFramePermissions": ["camera", "microphone", "geolocation"],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

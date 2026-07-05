@@ -17,8 +17,12 @@ export const SecurityLock: React.FC<SecurityLockProps> = ({ children }) => {
   useEffect(() => {
     const checkSecurity = async () => {
       const pinSetting = await db.settings.get('storage_pin');
+      const enabledSetting = await db.settings.get('lock_screen_enabled');
+      
+      const isEnabled = enabledSetting ? enabledSetting.value === 'true' : true;
+      
       setHasPin(!!pinSetting);
-      if (!pinSetting) {
+      if (!pinSetting || !isEnabled) {
         setIsLocked(false);
       }
     };

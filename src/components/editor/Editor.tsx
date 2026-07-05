@@ -52,6 +52,14 @@ export const Editor = forwardRef<EditorRef, EditorProps>(({ content, onChange, p
       }
     };
 
+    recognition.onerror = (event: any) => {
+      console.error("Speech recognition error:", event.error);
+      if (event.error === 'not-allowed') {
+        alert("Microphone access was denied. Please allow microphone access to use voice features.");
+      }
+      setIsRecording(false);
+    };
+
     recognitionRef.current = recognition;
 
     return () => {
@@ -62,10 +70,16 @@ export const Editor = forwardRef<EditorRef, EditorProps>(({ content, onChange, p
   const toggleRecording = () => {
     if (isRecording) {
       recognitionRef.current?.stop();
+      setIsRecording(false);
     } else {
-      recognitionRef.current?.start();
+      try {
+        recognitionRef.current?.start();
+        setIsRecording(true);
+      } catch (err) {
+        console.error("Error starting speech recognition:", err);
+        setIsRecording(false);
+      }
     }
-    setIsRecording(!isRecording);
   };
 
   const readAloud = () => {

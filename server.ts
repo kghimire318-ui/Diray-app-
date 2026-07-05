@@ -94,7 +94,7 @@ async function startServer() {
 
       const response = await ai.models.generateContent({
         model: "gemini-3.5-flash",
-        contents: `Analyze the emotional tone of the following diary entry and provide a brief summary of the mood. Return the result in JSON format: { "mood": string, "summary": string }. \n\nEntry: ${text}`,
+        contents: `Analyze the emotional tone of the following diary entry and provide a brief summary of the mood. Return the result in JSON format: { "mood": string, "summary": string, "score": number (0-100 representing positive sentiment) }. \n\nEntry: ${text}`,
         config: {
           responseMimeType: "application/json",
         },
